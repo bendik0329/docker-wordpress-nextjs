@@ -29,14 +29,9 @@ services:
     entrypoint: "/bin/bash -c"
     command:
       - |
-        CI=true yarn dev || (\
-          echo '⛔ `yarn dev` failed, but the container is running...' && \
+        CI=true yarn start || (\
+          echo '⛔ `yarn start` failed, but the container is running...' && \
           tail -f /dev/null \
         )
     ports:
       - 4000:4000
-    environment:
-      CONTENTFUL_API_URL: ${CONTENTFUL_API_URL}
-      CONTENTFUL_API_TOKEN: ${CONTENTFUL_API_TOKEN}
-      SHOPIFY_STOREFRONT_API_URL: ${SHOPIFY_STOREFRONT_API_URL}
-      SHOPIFY_STOREFRONT_API_TOKEN: ${SHOPIFY_STOREFRONT_API_TOKEN}

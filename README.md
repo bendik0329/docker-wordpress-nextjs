@@ -1,4 +1,4 @@
-# contentful-shopify-app
+# docker-microservices-app
 
 ## Getting Started
 
