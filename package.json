@@ -1,0 +1,29 @@
+{
+  "name": "contentful-shopify-app",
+  "repository": "git@github.com:La-Colonia/contentful-shopify-app.git",
+  "author": "Lorenzo Rivosecchi <lorenzo.rivosecchi@lacolonia.studio>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "prepare": "yarn run install",
+    "start": "yarn up && yarn logs",
+    "up:app": "docker compose up -d --force-recreate app",
+    "up:api": "docker compose up -d --force-recreate api",
+    "up": "yarn up:api && yarn up:app",
+    "install:app": "docker compose run --rm app \"yarn install\"",
+    "install:api": "docker compose run --rm api \"yarn install\"",
+    "install": "yarn install:app && yarn install:api",
+    "into:api": "docker compose exec api bash",
+    "into:app": "docker compose exec app bash",
+    "logs": "docker compose logs -f",
+    "generate": "yarn graphql-codegen --config codegen.yml"
+  },
+  "dependencies": {
+    "@graphql-codegen/cli": "2.2.1",
+    "@graphql-codegen/introspection": "2.1.0",
+    "@graphql-codegen/typescript": "2.2.3",
+    "@graphql-codegen/typescript-operations": "2.1.7",
+    "@graphql-codegen/typescript-react-apollo": "3.1.5",
+    "graphql": "^15.6.1"
+  }
+}
