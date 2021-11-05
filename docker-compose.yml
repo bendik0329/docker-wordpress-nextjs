@@ -23,8 +23,8 @@ services:
     ports:
       - 3000:3000
     environment:
-      API_SERVER_URL: http://wordpress:4000/graphql
-      API_CLIENT_URL: http://localhost:4000/graphql
+      API_SERVER_URL: http://wordpress/graphql
+      API_CLIENT_URL: http://localhost:8080/graphql
 
   db:
     image: mysql
