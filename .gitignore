@@ -1,0 +1,15 @@
+# dependencies
+node_modules
+
+# secrets
+.env
+
+# logs
+*.log
+*.error
+
+# Jet Brains WebStorm
+.idea
+
+# Other
+.DS_Store
