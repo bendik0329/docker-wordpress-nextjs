@@ -1,6 +1,6 @@
 {
-  "name": "contentful-shopify-app",
-  "repository": "git@github.com:La-Colonia/contentful-shopify-app.git",
+  "name": "docker-microservices-app",
+  "repository": "git@github.com:La-Colonia/docker-microservices-app.git",
   "author": "Lorenzo Rivosecchi <lorenzo.rivosecchi@lacolonia.studio>",
   "license": "MIT",
   "private": true,
