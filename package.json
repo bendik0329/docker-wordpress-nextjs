@@ -15,6 +15,27 @@
     "install": "yarn install:app && yarn install:api",
     "into:api": "docker compose exec api bash",
     "into:app": "docker compose exec app bash",
-    "logs": "docker compose logs -f"
+    "logs": "docker compose logs -f",
+    "init": "npm run standard-changelog:init && npm run changelog:init",
+    "release": "npm run changelog && npm run standard-version",
+    "changelog:init": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "standard-changelog:init": "standard-changelog --first-release",
+    "standard-version": "standard-version"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "conventional-changelog-cli": "^2.0.31",
+    "husky": "^4.2.3",
+    "prettier": "1.19.1",
+    "pretty-quick": "^2.0.1",
+    "standard-changelog": "^2.0.21",
+    "standard-version": "^7.0.1",
+    "uuidv4": "^6.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
