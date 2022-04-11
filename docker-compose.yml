@@ -2,6 +2,11 @@
 
 version: "3.7"
 
+x-variables:
+  - &db_name test
+  - &db_password ${MYSQL_PASSWORD}
+  - &db_user ${MYSQL_USER}
+
 services:
   app:
     image: node:12
@@ -18,20 +23,34 @@ services:
     ports:
       - 3000:3000
     environment:
-      API_SERVER_URL: http://api:4000/graphql
-      API_CLIENT_URL: http://localhost:4000/graphql
+      API_SERVER_URL: http://wordpress/graphql
+      API_CLIENT_URL: http://localhost:8080/graphql
 
-  api:
-    image: node:12
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: *db_name
+      MYSQL_PASSWORD: *db_password
+      MYSQL_USER: *db_user
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
     volumes:
-      - ./api:/usr/src/app
-    working_dir: /usr/src/app
-    entrypoint: "/bin/bash -c"
-    command:
-      - |
-        CI=true yarn start || (\
-          echo '⛔ `yarn start` failed, but the container is running...' && \
-          tail -f /dev/null \
-        )
+      - db_data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: *db_name
+      WORDPRESS_DB_USER: *db_user
+      WORDPRESS_DB_PASSWORD: *db_password
+    depends_on:
+      - db
     ports:
-      - 4000:4000
+      - "8080:80"
+    restart: always
+    volumes:
+      - ./wordpress:/var/www/html
+
+volumes:
+  db_data:

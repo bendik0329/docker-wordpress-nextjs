@@ -1,0 +1,24 @@
+/*
+
+# Ignore default themes
+/wp-content/themes/*
+!/wp-content/themes/docker-microservices-app
+
+# Ignore languages
+/wp-content/languages/*
+
+# Ignore plugins
+/wp-content/plugins/*
+/wp-content/mu-plugins
+!/wp-content/plugins/docker-microservices-app
+!/wp-content/plugins/README.md
+
+# Ignore images
+/wp-content/uploads/**/*
+
+# Except these ones:
+!/wp-content/
+!.gitignore
+!/Dockerfile
+!/remote.Dockerfile
+!/.htaccess
