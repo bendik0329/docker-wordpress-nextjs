@@ -1,4 +1,4 @@
-# docker-microservices-app
+# docker-wordpress-nextjs
 
 ## Getting Started
 
