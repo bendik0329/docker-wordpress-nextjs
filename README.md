@@ -21,23 +21,3 @@ yarn start
 
 Visit the app at [http://localhost:3000](http://localhost:3000).  
 Explore the api at [http://localhost:4000](http://localhost:4000).
-
-## Deployment
-
-To create the app:
-
-```bash
-doctl apps create --spec .do/production.yaml
-```
-
-To list running apps:
-
-```bash
-doctl apps list --format ID,Spec.Name
-```
-
-To update running app
-
-```bash
-doctl apps update <app-id> --spec .do/production.yaml
-```
