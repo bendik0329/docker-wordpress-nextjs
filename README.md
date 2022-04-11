@@ -7,13 +7,13 @@ To run this locally make sure you have the following:
 - Docker (with Compose)
 - Yarn
 
-To run it for first time:
+Run this command to install modules and execute configuration scripts.
 
 ```bash
-yarn prepare && yarn start
+yarn install
 ```
 
-Later you can run it without prepare:
+Then, start application.
 
 ```bash
 yarn start
