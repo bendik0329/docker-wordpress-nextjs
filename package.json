@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "prepare": "yarn run install",
+    "prepare": "cp .env.sample .env && yarn run install",
     "start": "yarn up && yarn logs",
     "up:app": "docker compose up -d --force-recreate app",
     "up:wordpress": "docker compose up -d --force-recreate wordpress",
